@@ -7,12 +7,17 @@ This project focuses on optimizing cooling needs in laboratory environments usin
 - **Interactive Dashboard**: Real-time zone forecasts and heatmaps.
 - **Synthetic Data Generation**: Customizable lab environment simulator.
 
-## Setup
-1. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-2. Run the dashboard:
-   ```bash
-   streamlit run app.py
-   ```
+## How it Works
+1. **Data Collection**: The system uses synthetic sensors for occupancy, ambient temperature, and equipment power usage across multiple zones (Lab A, Lab B, Clean Room, Office 1).
+2. **AI Modeling**: A Decision Tree Regressor is trained on historical data to map these inputs to the required cooling load (kW).
+3. **Forecasting**: The dashboard allows users to simulate "what-if" scenarios by adjusting occupancy and temperature, visualizing the impact on cooling needs instantly.
+
+## Dashboard Preview
+- **Zone Metrics**: Real-time cooling demand per zone.
+- **Heatmaps**: Visual representation of heat distribution over the lab floor.
+- **Trend Charts**: Historical analysis of cooling requirements over the past 24 hours.
+
+## Technical Details
+- **Model**: Scikit-Learn DecisionTreeRegressor (Depth=5)
+- **Visualization**: Plotly Express for heatmaps and time-series plots.
+- **Backend**: Streamlit for the interactive UI.
